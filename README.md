@@ -17,6 +17,8 @@
 
 ### mysql:
 ```
+const mysqlHelper = require('./controller/mysqlHelper')
+
 // get one row
 await mysqlHelper.queryOne('selet * from users;')
 
@@ -47,6 +49,8 @@ try {
 
 ### redis
 ```
+const redisHelper = require('./controller/redisHelper')
+
 // get(name)
 await redisHelper.get(userId)
 
@@ -56,6 +60,8 @@ await redisHelper.set(userId, 'userId', 5)  // 5 seconds
 
 ### sequelize
 ```
+const sequelize = require('./model/sequelize')
+
 // create table 'users' with model User
 const User = sequelize.define('user', {
   username: Sequelize.STRING,
