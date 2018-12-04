@@ -78,3 +78,50 @@ sequelize.sync()
     console.log(jane.toJSON())
   })
 ```
+
+### run server
+##### pm2
+1. install pm2
+
+```
+npm install -g pm2
+```
+2. run server
+
+```
+pm2 start ecosystem.json
+
+// reload all node
+pm2 reload all
+// reload node id is 1
+pm2 reload 1
+
+// start all node
+pm2 start all
+// start node id is 1
+pm2 start 1
+
+// stop all node
+pm2 stop all
+// stop node id is 1
+pm2 stop 1
+
+// get node status
+pm2 status
+
+// more
+pm2 -h
+```
+
+##### supervisor (can auto reload)
+1. install supervisor
+
+```
+npm install -g supervisor
+```
+
+2. run server
+
+```
+supervisor --harmony app.js
+```
