@@ -60,6 +60,7 @@ await redisHelper.set(userId, 'userId', 5)  // 5 seconds
 
 ### sequelize
 ```
+const Sequelize = require('sequelize')
 const sequelize = require('./model/sequelize')
 
 // create table 'users' with model User
