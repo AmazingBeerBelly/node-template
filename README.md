@@ -77,6 +77,9 @@ sequelize.sync()
   .then(jane => {
     console.log(jane.toJSON())
   })
+  
+// more info
+// http://docs.sequelizejs.com/class/lib/sequelize.js~Sequelize.html
 ```
 
 ### run server
