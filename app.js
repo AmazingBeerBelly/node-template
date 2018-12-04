@@ -5,8 +5,10 @@ const jwt = require('koa-jwt')
 const koaStatic = require('koa-static')
 const https = require('https')
 const fs = require('fs')
+const path = require('path')
 
 const { errorType } = require('./constans')
+const router = require('./router')
 
 app
   .use((ctx, next) => {
