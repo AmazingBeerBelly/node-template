@@ -3,7 +3,7 @@
 ### init steps:
 
 1. npm install
-2. eslint --init (choose standard style)
+2. eslint --init (using popular style -> choose standard style -> yes)
 
 ### eslint config (vscode preference setting workspace):
 

@@ -1,5 +1,5 @@
 const config = {
-  mysql : {
+  mysql: {
     host: 'localhost',
     user: 'user',
     password: 'password',
@@ -13,7 +13,7 @@ const config = {
     host: '127.0.0.1',
     port: '6379',
     password: 'password'
-  },
+  }
 }
 
 module.exports = config
