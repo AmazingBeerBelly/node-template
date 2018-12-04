@@ -20,10 +20,10 @@
 const mysqlHelper = require('./controller/mysqlHelper')
 
 // get one row
-await mysqlHelper.queryOne('selet * from users;')
+await mysqlHelper.queryOne('selet * from users')
 
 // get rows
-await mysqlHelper.query('selet * from users;')
+await mysqlHelper.query('selet * from users')
 await mysqlHelper.query('selet * from users where userId = ?', [userId])
 
 // update, insert, query
@@ -66,7 +66,7 @@ const sequelize = require('./model/sequelize')
 const User = sequelize.define('user', {
   username: Sequelize.STRING,
   birthday: Sequelize.DATE
-});
+})
 
 // add user
 sequelize.sync()
@@ -75,6 +75,6 @@ sequelize.sync()
     birthday: new Date(1980, 6, 20)
   }))
   .then(jane => {
-    console.log(jane.toJSON());
-  });
+    console.log(jane.toJSON())
+  })
 ```
