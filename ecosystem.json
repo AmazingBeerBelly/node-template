@@ -1,0 +1,15 @@
+{
+  "apps": [
+    {
+      "name": "node-server-6000",
+      "script": "app.js",
+      "node_args": "--max-old-space-size=700",
+      "merge_logs": true,
+      "log_date_format": "YYYY-MM-DD HH:mm Z",
+      "env": {
+        "NODE_ENV": "production",
+        "PORT": 6000
+      }
+    }
+  ]
+}
