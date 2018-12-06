@@ -32,6 +32,7 @@ try {
   _pool = await mysqlHelper.getPool()
   _conn = await _pool.getConnection()
   await _conn.beginTransaction()
+  await _conn.query('select * from users where userId = ? for update', [userId])  // 'for update' can add the lock
   await _conn.query('insert into user (userId, password) values (?)', [[userId, password]])
   await _conn.query('update user set password = ? where userId = ?', [password, userId])
   await _conn.commit()
