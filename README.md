@@ -15,6 +15,34 @@
 }
 ```
 
+### model:
+```
+const Sequelize = require('sequelize')
+const sequelize = require('./sequelize')
+
+const User = sequelize.define('user', {
+  userId: Sequelize.STRING,
+  password: Sequelize.BIGINT
+}, {
+  timestamps: false
+})
+
+function addUser (userId, password) {
+  return new Promise((resolve, reject) => {
+    sequelize.sync()
+      .then(() => User.create({
+        userId,
+        password
+      }))
+      .then(user => {
+        console.log('add user: ', user.toJSON())
+        resolve(user.toJSON())
+      })
+  })
+}
+```
+
+
 ### mysql:
 ```
 const mysqlHelper = require('./controller/mysqlHelper')
