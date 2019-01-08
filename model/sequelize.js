@@ -16,6 +16,4 @@ const sequelize = new Sequelize(mysql.database, mysql.user, mysql.password, {
   operatorsAliases: false
 })
 
-module.exports = {
-  sequelize
-}
+module.exports = sequelize
