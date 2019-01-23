@@ -17,7 +17,7 @@ app
         ctx.status = 200
         ctx.body = {
           error_code: ERROR_TYPE.AUTH_FAILED.code,
-          error_msg: err.originalError ? err.originalError.message : err.message
+          error_message: ERROR_TYPE.AUTH_FAILED.message
         }
       } else {
         throw err
