@@ -7,7 +7,7 @@ const https = require('https')
 const fs = require('fs')
 const path = require('path')
 
-const { errorType } = require('./constans')
+const { ERROR_TYPE } = require('./constans')
 const router = require('./router')
 
 app
@@ -16,13 +16,20 @@ app
       if (err.status === 401) {
         ctx.status = 200
         ctx.body = {
-          error_code: errorType.AUTH_FAILED.code,
+          error_code: ERROR_TYPE.AUTH_FAILED.code,
           error_msg: err.originalError ? err.originalError.message : err.message
         }
       } else {
         throw err
       }
     })
+  })
+  // 跨域
+  .use(async (ctx, next) => {
+    ctx.set('Access-Control-Allow-Origin', ctx.header.origin)
+    ctx.set('Access-Control-Allow-Credentials', true)
+    ctx.set('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
+    ctx.set('Access-Control-Allow-Headers', 'X-Real-IP, Content-Type, Authorization')
   })
   .use(koaStatic(path.join(__dirname, 'public')))
   .use(koaBody({ multipart: true }))
