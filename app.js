@@ -9,6 +9,7 @@ const path = require('path')
 
 const { ERROR_TYPE } = require('./constans')
 const router = require('./router')
+const sequelize = require('./model/sequelize')
 
 app
   .use((ctx, next) => {
@@ -38,6 +39,8 @@ app
 
 const server = require('http').createServer(app.callback())
 server.listen(6000, '0.0.0.0')
+
+sequelize.sync()
 
 // if using https
 // const httpsOption = {
