@@ -31,6 +31,8 @@ app
     ctx.set('Access-Control-Allow-Credentials', true)
     ctx.set('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
     ctx.set('Access-Control-Allow-Headers', 'X-Real-IP, Content-Type, Authorization')
+  
+    await next()
   })
   .use(koaStatic(path.join(__dirname, 'public')))
   .use(koaBody({ multipart: true }))
